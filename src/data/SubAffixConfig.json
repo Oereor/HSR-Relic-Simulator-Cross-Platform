@@ -1,0 +1,86 @@
+[
+    {
+        "type": "Spd",
+        "weight": "4",
+        "is-percent": false,
+        "base-value": "2",
+        "extra-enhance-step": "0.3"
+    },
+    {
+        "type": "Hp",
+        "weight": "10",
+        "is-percent": false,
+        "base-value": "33.87004",
+        "extra-enhance-step": "4.233755"
+    },
+    {
+        "type": "Atk",
+        "weight": "10",
+        "is-percent": false,
+        "base-value": "16.935",
+        "extra-enhance-step": "2.116877"
+    },
+    {
+        "type": "Def",
+        "weight": "10",
+        "is-percent": false,
+        "base-value": "16.935",
+        "extra-enhance-step": "2.116877"
+    },
+    {
+        "type": "HpPercentage",
+        "weight": "10",
+        "is-percent": true,
+        "base-value": "3.456",
+        "extra-enhance-step": "0.432"
+    },
+    {
+        "type": "AtkPercentage",
+        "weight": "10",
+        "is-percent": true,
+        "base-value": "3.456",
+        "extra-enhance-step": "0.432"
+    },
+    {
+        "type": "DefPercentage",
+        "weight": "10",
+        "is-percent": true,
+        "base-value": "4.32",
+        "extra-enhance-step": "0.54"
+    },
+    {
+        "type": "BreakEffect",
+        "weight": "8",
+        "is-percent": true,
+        "base-value": "5.184",
+        "extra-enhance-step": "0.648"
+    },
+    {
+        "type": "EffectHitRate",
+        "weight": "8",
+        "is-percent": true,
+        "base-value": "3.456",
+        "extra-enhance-step": "0.432"
+    },
+    {
+        "type": "EffectRes",
+        "weight": "8",
+        "is-percent": true,
+        "base-value": "3.456",
+        "extra-enhance-step": "0.432"
+    },
+    {
+        "type": "CritRate",
+        "weight": "6",
+        "is-percent": true,
+        "base-value": "2.592",
+        "extra-enhance-step": "0.324"
+    },
+    {
+        "type": "CritDmg",
+        "weight": "6",
+        "is-percent": true,
+        "base-value": "5.184",
+        "extra-enhance-step": "0.648"
+    }
+]

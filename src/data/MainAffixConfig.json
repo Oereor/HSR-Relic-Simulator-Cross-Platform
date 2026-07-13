@@ -1,0 +1,116 @@
+[
+    {
+        "type": "Spd",
+        "is-percent": false,
+        "base-value": "4.032",
+        "level-up-step": "1.4"
+    },
+    {
+        "type": "Hp",
+        "is-percent": false,
+        "base-value": "112.896",
+        "level-up-step": "39.5136"
+    },
+    {
+        "type": "Atk",
+        "is-percent": false,
+        "base-value": "56.448",
+        "level-up-step": "19.7568"
+    },
+    {
+        "type": "HpPercentage",
+        "is-percent": true,
+        "base-value": "6.912",
+        "level-up-step": "2.4192"
+    },
+    {
+        "type": "AtkPercentage",
+        "is-percent": true,
+        "base-value": "6.912",
+        "level-up-step": "2.4192"
+    },
+    {
+        "type": "DefPercentage",
+        "is-percent": true,
+        "base-value": "8.64",
+        "level-up-step": "3.024"
+    },
+    {
+        "type": "BreakEffect",
+        "is-percent": true,
+        "base-value": "10.368",
+        "level-up-step": "3.6277"
+    },
+    {
+        "type": "EffectHitRate",
+        "is-percent": true,
+        "base-value": "6.912",
+        "level-up-step": "2.4192"
+    },
+    {
+        "type": "EnergyRegenerationRate",
+        "is-percent": true,
+        "base-value": "3.1104",
+        "level-up-step": "19.4394"
+    },
+    {
+        "type": "OutgoingHealingBoost",
+        "is-percent": true,
+        "base-value": "5.5296",
+        "level-up-step": "1.9354"
+    },
+    {
+        "type": "PhysicalDmgBoost",
+        "is-percent": true,
+        "base-value": "6.2208",
+        "level-up-step": "2.1773"
+    },
+    {
+        "type": "FireDmgBoost",
+        "is-percent": true,
+        "base-value": "6.2208",
+        "level-up-step": "2.1773"
+    },
+    {
+        "type": "IceDmgBoost",
+        "is-percent": true,
+        "base-value": "6.2208",
+        "level-up-step": "2.1773"
+    },
+    {
+        "type": "WindDmgBoost",
+        "is-percent": true,
+        "base-value": "6.2208",
+        "level-up-step": "2.1773"
+    },
+    {
+        "type": "LightningDmgBoost",
+        "is-percent": true,
+        "base-value": "6.2208",
+        "level-up-step": "2.1773"
+    },
+    {
+        "type": "QuantumDmgBoost",
+        "is-percent": true,
+        "base-value": "6.2208",
+        "level-up-step": "2.1773"
+    },
+    {
+        "type": "ImaginaryDmgBoost",
+        "is-percent": true,
+        "base-value": "6.2208",
+        "level-up-step": "2.1773"
+    },
+    {
+        "type": "CritRate",
+        "is-percent": true,
+        "base-value": "5.184",
+        "level-up-step": "1.8144"
+    },
+    {
+        "type": "CritDmg",
+        "is-percent": true,
+        "base-value": "10.368",
+        "level-up-step": "3.6288"
+    }
+]

@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* ============================================ */
+/* HSR-INSPIRED DARK THEME COLOR PALETTE         */
+/* ============================================ */
+
+@theme {
+  --color-bg-dark: #1A1A2E;
+  --color-bg-card: #16213E;
+  --color-accent-gold: #E2C275;
+  --color-text-primary: #EAEAEA;
+  --color-text-muted: #7B8DB0;
+  --color-text-dim: #555555;
+  --color-pending-highlight: #4A90D9;
+  --color-control-bg: #0F0F23;
+  --color-control-border: #2A2A4A;
+  --color-dropdown-bg: #1E1E3A;
+  --color-button-hover: #1E3050;
+  --color-button-pressed: #0F1A2E;
+  --color-sub-row-bg: #1E2D4A;
+  --color-row-dimmed-bg: #16213E;
+  --color-row-highlight-bg: #E2C275;
+  --color-blocked-red: #E05555;
+  --color-danger-bg: #3A2020;
+  --color-danger-border: #6A3030;
+  --color-set-tag-text: #1A1A2E;
+  --color-main-affix-bar: #1A2744;
+  --color-card-border: #2A4A6E;
+}
+
+/* ============================================ */
+/* GLOBAL DEFAULTS (match WPF TextBlock 12px)    */
+/* ============================================ */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-dark);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-control-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Transition classes for reforge preview fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

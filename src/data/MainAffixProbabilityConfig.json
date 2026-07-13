@@ -1,0 +1,144 @@
+[
+    {
+        "position": "Head",
+        "available-main-affixes": [
+            {
+                "type": "Hp",
+                "probability": 1
+            }
+        ]
+    },
+    {
+        "position": "Hands",
+        "available-main-affixes": [
+            {
+                "type": "Atk",
+                "probability": 1
+            }
+        ]
+    },
+    {
+        "position": "Body",
+        "available-main-affixes": [
+            {
+                "type": "HpPercentage",
+                "probability": 0.2
+            },
+            {
+                "type": "AtkPercentage",
+                "probability": 0.2
+            },
+            {
+                "type": "DefPercentage",
+                "probability": 0.2
+            },
+            {
+                "type": "EffectHitRate",
+                "probability": 0.1
+            },
+            {
+                "type": "OutgoingHealingBoost",
+                "probability": 0.1
+            },
+            {
+                "type": "CritRate",
+                "probability": 0.1
+            },
+            {
+                "type": "CritDmg",
+                "probability": 0.1
+            }
+        ]
+    },
+    {
+        "position": "Feet",
+        "available-main-affixes": [
+            {
+                "type": "HpPercentage",
+                "probability": 0.28
+            },
+            {
+                "type": "AtkPercentage",
+                "probability": 0.3
+            },
+            {
+                "type": "DefPercentage",
+                "probability": 0.3
+            },
+            {
+                "type": "Spd",
+                "probability": 0.12
+            }
+        ]
+    },
+    {
+        "position": "Sphere",
+        "available-main-affixes": [
+            {
+                "type": "HpPercentage",
+                "probability": 0.12
+            },
+            {
+                "type": "AtkPercentage",
+                "probability": 0.13
+            },
+            {
+                "type": "DefPercentage",
+                "probability": 0.12
+            },
+            {
+                "type": "PhysicalDmgBoost",
+                "probability": 0.09
+            },
+            {
+                "type": "FireDmgBoost",
+                "probability": 0.09
+            },
+            {
+                "type": "IceDmgBoost",
+                "probability": 0.09
+            },
+            {
+                "type": "WindDmgBoost",
+                "probability": 0.09
+            },
+            {
+                "type": "LightningDmgBoost",
+                "probability": 0.09
+            },
+            {
+                "type": "QuantumDmgBoost",
+                "probability": 0.09
+            },
+            {
+                "type": "ImaginaryDmgBoost",
+                "probability": 0.09
+            }
+        ]
+    },
+    {
+        "position": "Rope",
+        "available-main-affixes": [
+            {
+                "type": "HpPercentage",
+                "probability": 0.26
+            },
+            {
+                "type": "AtkPercentage",
+                "probability": 0.27
+            },
+            {
+                "type": "DefPercentage",
+                "probability": 0.24
+            },
+            {
+                "type": "BreakEffect",
+                "probability": 0.16
+            },
+            {
+                "type": "EnergyRegenerationRate",
+                "probability": 0.05
+            }
+        ]
+    }
+]

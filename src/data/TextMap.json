@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "version": 1,
+    "languages": ["en", "zh"],
+    "defaultLanguage": "en"
+  },
+  "entries": {
+    "meta.position": {
+      "en": "Position",
+      "zh": "部位"
+    },
+    "meta.relic": {
+      "en": "Relic",
+      "zh": "遗器"
+    },
+    "meta.main_affix": {
+      "en": "Main Affix",
+      "zh": "主词条"
+    },
+    "meta.sub_affix": {
+      "en": "Sub-affix",
+      "zh": "副词条"
+    },
+    "meta.create_relic": {
+      "en": "Create Relic",
+      "zh": "合成遗器"
+    },
+    "meta.reforge": {
+      "en": "Reforge",
+      "zh": "重掷"
+    },
+    "meta.useful_sub_affixes": {
+      "en": "Effective Sub-affixes",
+      "zh": "有效副词条"
+    },
+
+    "relic.position.Head": {
+      "en": "Head",
+      "zh": "头部"
+    },
+    "relic.position.Hands": {
+      "en": "Hands",
+      "zh": "手部"
+    },
+    "relic.position.Body": {
+      "en": "Body",
+      "zh": "躯干"
+    },
+    "relic.position.Feet": {
+      "en": "Feet",
+      "zh": "脚部"
+    },
+    "relic.position.Sphere": {
+      "en": "Sphere",
+      "zh": "位面球"
+    },
+    "relic.position.Rope": {
+      "en": "Rope",
+      "zh": "连结绳"
+    },
+
+    "relic.affix.Hp": {
+      "en": "HP",
+      "zh": "生命值"
+    },
+    "relic.affix.Atk": {
+      "en": "ATK",
+      "zh": "攻击力"
+    },
+    "relic.affix.Def": {
+      "en": "DEF",
+      "zh": "防御力"
+    },
+    "relic.affix.HpPercentage": {
+      "en": "HP%",
+      "zh": "生命值%"
+    },
+    "relic.affix.AtkPercentage": {
+      "en": "ATK%",
+      "zh": "攻击力%"
+    },
+    "relic.affix.DefPercentage": {
+      "en": "DEF%",
+      "zh": "防御力%"
+    },
+    "relic.affix.EffectHitRate": {
+      "en": "Effect Hit Rate",
+      "zh": "效果命中"
+    },
+    "relic.affix.EffectRes": {
+      "en": "Effect RES",
+      "zh": "效果抵抗"
+    },
+    "relic.affix.OutgoingHealingBoost": {
+      "en": "Outgoing Healing Boost",
+      "zh": "治疗量加成"
+    },
+    "relic.affix.CritRate": {
+      "en": "CRIT Rate",
+      "zh": "暴击率"
+    },
+    "relic.affix.CritDmg": {
+      "en": "CRIT DMG",
+      "zh": "暴击伤害"
+    },
+    "relic.affix.Spd": {
+      "en": "SPD",
+      "zh": "速度"
+    },
+    "relic.affix.PhysicalDmgBoost": {
+      "en": "Physical DMG Boost",
+      "zh": "物理属性伤害提高"
+    },
+    "relic.affix.FireDmgBoost": {
+      "en": "Fire DMG Boost",
+      "zh": "火属性伤害提高"
+    },
+    "relic.affix.IceDmgBoost": {
+      "en": "Ice DMG Boost",
+      "zh": "冰属性伤害提高"
+    },
+    "relic.affix.WindDmgBoost": {
+      "en": "Wind DMG Boost",
+      "zh": "风属性伤害提高"
+    },
+    "relic.affix.LightningDmgBoost": {
+      "en": "Lightning DMG Boost",
+      "zh": "雷属性伤害提高"
+    },
+    "relic.affix.QuantumDmgBoost": {
+      "en": "Quantum DMG Boost",
+      "zh": "量子属性伤害提高"
+    },
+    "relic.affix.ImaginaryDmgBoost": {
+      "en": "Imaginary DMG Boost",
+      "zh": "虚数属性伤害提高"
+    },
+    "relic.affix.BreakEffect": {
+      "en": "Break Effect",
+      "zh": "击破特攻"
+    },
+    "relic.affix.EnergyRegenerationRate": {
+      "en": "Energy Regeneration Rate",
+      "zh": "能量恢复效率"
+    },
+
+    "ui.window.title": {
+      "en": "HSR Relic Simulator",
+      "zh": "崩坏：星穹铁道 遗器模拟器"
+    },
+    "ui.create.header": {
+      "en": "Create New Relic",
+      "zh": "合成遗器"
+    },
+    "ui.create.position": {
+      "en": "Position",
+      "zh": "部位"
+    },
+    "ui.create.main_affix": {
+      "en": "Main Affix",
+      "zh": "主词条"
+    },
+    "ui.create.sub_affix_1": {
+      "en": "Sub-affix 1",
+      "zh": "副词条 1"
+    },
+    "ui.create.sub_affix_2": {
+      "en": "Sub-affix 2",
+      "zh": "副词条 2"
+    },
+    "ui.create.button": {
+      "en": "Create Relic",
+      "zh": "合成遗器"
+    },
+    "ui.combo.random": {
+      "en": "Random",
+      "zh": "随机"
+    },
+    "ui.level.format": {
+      "en": "Lv. {0}/{1}",
+      "zh": "等级 {0}/{1}"
+    },
+    "ui.level.max_badge": {
+      "en": "MAX",
+      "zh": "已满级"
+    },
+    "ui.level_up.x1": {
+      "en": "×1",
+      "zh": "×1"
+    },
+    "ui.level_up.to_node": {
+      "en": "To Node",
+      "zh": "升至节点"
+    },
+    "ui.level_up.to_max": {
+      "en": "Max",
+      "zh": "升至满级"
+    },
+    "ui.reforge.button": {
+      "en": "Reforge",
+      "zh": "重掷"
+    },
+    "ui.reforge.button_blocked": {
+      "en": "Reforge ({0} blocked)",
+      "zh": "重铸（已锁定{0}项）"
+    },
+    "ui.reforge.accept": {
+      "en": "Accept",
+      "zh": "接受"
+    },
+    "ui.reforge.revert": {
+      "en": "Revert",
+      "zh": "撤销"
+    },
+    "ui.reforge.original_header": {
+      "en": "ORIGINAL",
+      "zh": "原属性"
+    },
+    "ui.reforge.pending_header": {
+      "en": "PENDING",
+      "zh": "待确认"
+    },
+    "ui.relic_set.title": {
+      "en": "Relic Set",
+      "zh": "遗器套装"
+    },
+    "ui.relic_set.empty_slot": {
+      "en": "Empty",
+      "zh": "空"
+    },
+    "ui.relic_set.useful_hits": {
+      "en": "Useful Hits",
+      "zh": "有效词条"
+    },
+    "ui.relic_set.save": {
+      "en": "Save Set",
+      "zh": "保存套装"
+    },
+    "ui.relic_set.load": {
+      "en": "Load Set",
+      "zh": "载入套装"
+    },
+    "ui.relic_set.open_button": {
+      "en": "Open Relic Set View",
+      "zh": "打开遗器套装视图"
+    },
+    "ui.relic_set.assign": {
+      "en": "Assign to Set",
+      "zh": "加入套装"
+    },
+    "ui.relic_set.in_set": {
+      "en": "In Set",
+      "zh": "已加入套装"
+    },
+    "ui.relic_set.remove": {
+      "en": "Remove from Set",
+      "zh": "移出套装"
+    },
+
+    "ui.relic_set.save_success": {
+      "en": "Saved as {0}",
+      "zh": "已保存为 {0}"
+    },
+    "ui.relic_set.save_failed": {
+      "en": "Save failed",
+      "zh": "保存失败"
+    },
+    "ui.relic_set.load_success": {
+      "en": "Set loaded successfully",
+      "zh": "已成功载入套装"
+    },
+    "ui.relic_set.load_failed": {
+      "en": "Load failed",
+      "zh": "载入失败"
+    },
+
+    "ui.statistics.title": {
+      "en": "Statistics",
+      "zh": "数据统计"
+    },
+    "ui.statistics.empty": {
+      "en": "No useful hits",
+      "zh": "无有效词条"
+    },
+
+    "ui.thumbnail.empty": {
+      "en": "No relics created yet",
+      "zh": "尚未合成遗器"
+    },
+
+    "ui.highlight.none": {
+      "en": "No sub-affix types available",
+      "zh": "无副词条类型可用"
+    },
+
+    "ui.create.random_set_button": {
+      "en": "Create Random Set",
+      "zh": "随机合成套装"
+    },
+
+    "ui.relic.decompose": {
+      "en": "Decompose",
+      "zh": "分解"
+    }
+  }
+}
