@@ -202,7 +202,7 @@
     },
     "ui.reforge.button_blocked": {
       "en": "Reforge ({0} blocked)",
-      "zh": "重铸（已锁定{0}项）"
+      "zh": "重铸（已锁定第{0}条）"
     },
     "ui.reforge.accept": {
       "en": "Accept",
