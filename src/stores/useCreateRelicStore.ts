@@ -11,9 +11,11 @@ import { AffixType, RelicPosition } from '@/types/enums'
 import type { AffixOption } from '@/types/ui'
 import { configService } from '@/logic/ConfigService'
 import { useLocaleStore } from './useLocaleStore'
+import { useCharacterTemplateStore } from './useCharacterTemplateStore'
 
 export const useCreateRelicStore = defineStore('createRelic', () => {
   const localeStore = useLocaleStore()
+  const templateStore = useCharacterTemplateStore()
 
   const selectedPosition = ref<RelicPosition>(RelicPosition.Head)
   const designatedMainAffix = ref<AffixType | null>(null)
@@ -45,6 +47,10 @@ export const useCreateRelicStore = defineStore('createRelic', () => {
   // ---- Whether the selected position has a fixed (single-option) main affix ----
 
   const isMainAffixFixed = computed<boolean>(() => {
+    // Template lock takes precedence
+    if (templateStore.isTemplateActive) {
+      return templateStore.getTemplateMainAffix(selectedPosition.value) !== null
+    }
     return configService.getAvailableMainAffixTypes(selectedPosition.value).length === 1
   })
 
@@ -98,13 +104,22 @@ export const useCreateRelicStore = defineStore('createRelic', () => {
   // ---- Visibility flags ----
 
   const isSubAffix1Visible = computed(
-    () => !isMainAffixFixed.value && designatedMainAffix.value !== null,
+    () => designatedMainAffix.value !== null,
   )
   const isSubAffix2Visible = computed(() => designatedSubAffix1.value !== null)
 
   // ---- Cascading reset watchers ----
 
   watch(selectedPosition, () => {
+    // Template lock takes precedence
+    if (templateStore.isTemplateActive) {
+      const templateAffix = templateStore.getTemplateMainAffix(selectedPosition.value)
+      if (templateAffix !== null) {
+        designatedMainAffix.value = templateAffix
+        return
+      }
+    }
+    // Fall back to existing behavior
     if (isMainAffixFixed.value) {
       const types = configService.getAvailableMainAffixTypes(selectedPosition.value)
       designatedMainAffix.value = types[0] ?? null
@@ -117,6 +132,17 @@ export const useCreateRelicStore = defineStore('createRelic', () => {
   })
   watch(designatedSubAffix1, () => {
     designatedSubAffix2.value = null
+  })
+
+  // When template changes, re-apply the main affix for the current position
+  watch(() => templateStore.selectedCharacter, () => {
+    if (templateStore.isTemplateActive) {
+      const templateAffix = templateStore.getTemplateMainAffix(selectedPosition.value)
+      if (templateAffix !== null) {
+        designatedMainAffix.value = templateAffix
+      }
+    }
+    // On clear: leave designatedMainAffix unchanged per spec
   })
 
   // ---- Actions ----

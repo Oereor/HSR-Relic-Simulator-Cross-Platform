@@ -19,6 +19,8 @@ import type { RandomWrapper } from './RandomWrapper'
 import mainAffixConfigRaw from '@/data/MainAffixConfig.json'
 import subAffixConfigRaw from '@/data/SubAffixConfig.json'
 import mainAffixProbRaw from '@/data/MainAffixProbabilityConfig.json'
+import characterTemplatesRaw from '@/data/CharacterRelicTemplatesConfig.json'
+import type { CharacterTemplate, CharacterTemplateMainAffixes } from '@/types/characterTemplate'
 
 // ---- Raw JSON shapes (kebab-case keys, string numbers) ----
 
@@ -45,6 +47,17 @@ interface RawMainAffixProbEntry {
 interface RawMainAffixOption {
   type: string
   probability: number
+}
+
+interface RawCharacterTemplate {
+  character: string
+  'main-affixes': {
+    body: string
+    feet: string
+    sphere: string
+    rope: string
+  }
+  'effective-sub-affixes': string[]
 }
 
 // ---- Helpers ----
@@ -74,6 +87,7 @@ class ConfigService {
   private mainAffixProbabilities = new Map<RelicPosition, MainAffixOption[]>()
   private subAffixEntriesList: SubAffixConfigEntry[] = []
   private allSubAffixTypesSet = new Set<AffixType>()
+  private characterTemplates: CharacterTemplate[] = []
 
   constructor() {
     this.loadConfigs()
@@ -103,6 +117,14 @@ class ConfigService {
 
   getAllSubAffixTypes(): Set<AffixType> {
     return new Set(this.allSubAffixTypesSet)
+  }
+
+  getAllCharacterTemplates(): CharacterTemplate[] {
+    return this.characterTemplates
+  }
+
+  getCharacterTemplate(characterName: string): CharacterTemplate | undefined {
+    return this.characterTemplates.find(t => t.character === characterName)
   }
 
   // ---- Weighted random selection ----
@@ -183,6 +205,29 @@ class ConfigService {
         probability: o.probability,
       }))
       this.mainAffixProbabilities.set(position, options)
+    }
+
+    this.loadCharacterTemplates()
+  }
+
+  private loadCharacterTemplates(): void {
+    const rawList = characterTemplatesRaw as RawCharacterTemplate[]
+    for (const raw of rawList) {
+      const mainAffixes: CharacterTemplateMainAffixes = {
+        body: parseAffixType(raw['main-affixes'].body),
+        feet: parseAffixType(raw['main-affixes'].feet),
+        sphere: parseAffixType(raw['main-affixes'].sphere),
+        rope: parseAffixType(raw['main-affixes'].rope),
+      }
+      const effectiveSubAffixes: AffixType[] = raw['effective-sub-affixes']
+        .map(s => parseAffixType(s))
+        .filter(t => t !== AffixType.Unknown)
+
+      this.characterTemplates.push({
+        character: raw.character,
+        mainAffixes,
+        effectiveSubAffixes,
+      })
     }
   }
 }

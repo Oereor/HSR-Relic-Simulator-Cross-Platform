@@ -7,6 +7,9 @@
 
     <h1 class="text-accent-gold text-xl font-bold mb-4">
       {{ localeStore.t('ui.relic_set.title') }}
+      <span v-if="templateStore.isTemplateActive" class="text-text-muted text-base font-normal">
+        — {{ localeStore.getCharacterName(templateStore.selectedCharacter!) }}
+      </span>
     </h1>
 
     <!-- 6-slot grid -->
@@ -45,6 +48,7 @@ import { RelicPosition } from '@/types/enums'
 import { useRelicStore } from '@/stores/useRelicStore'
 import { useRelicSetStore } from '@/stores/useRelicSetStore'
 import { useLocaleStore } from '@/stores/useLocaleStore'
+import { useCharacterTemplateStore } from '@/stores/useCharacterTemplateStore'
 import { saveToFile, loadFromFile } from '@/utils/fileIO'
 import RelicSetSlot from '@/components/set/RelicSetSlot.vue'
 import StatisticsPanel from '@/components/set/StatisticsPanel.vue'
@@ -54,6 +58,7 @@ import AppButton from '@/components/ui/AppButton.vue'
 const relicStore = useRelicStore()
 const relicSetStore = useRelicSetStore()
 const localeStore = useLocaleStore()
+const templateStore = useCharacterTemplateStore()
 
 const positions = [
   RelicPosition.Head,

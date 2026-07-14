@@ -74,6 +74,15 @@ class LocalizationService {
     const key = `relic.position.${RelicPosition[position]}`
     return this.get(key)
   }
+
+  /**
+   * Gets the localized display name for a character.
+   * Key format: "character.name.{Name}" (e.g. "character.name.Firefly")
+   */
+  getCharacterName(name: string): string {
+    const key = `character.name.${name}`
+    return this.get(key)
+  }
 }
 
 export const localizationService = new LocalizationService()
