@@ -1,0 +1,74 @@
+[
+    {
+        "character": "Firefly",
+        "main-affixes": {
+            "body": "AtkPercentage",
+            "feet": "Spd",
+            "sphere": "AtkPercentage",
+            "rope": "BreakEffect"
+        },
+        "effective-sub-affixes": [
+            "AtkPercentage",
+            "BreakEffect",
+            "Spd"
+        ]
+    },
+    {
+        "character": "Castorice",
+        "main-affixes": {
+            "body": "CritDmg",
+            "feet": "HpPercentage",
+            "sphere": "HpPercentage",
+            "rope": "HpPercentage"
+        },
+        "effective-sub-affixes": [
+            "HpPercentage",
+            "CritRate",
+            "CritDmg"
+        ]
+    },
+    {
+        "character": "Hyacine",
+        "main-affixes": {
+            "body": "OutgoingHealingBoost",
+            "feet": "Spd",
+            "sphere": "HpPercentage",
+            "rope": "EnergyRegenerationRate"
+        },
+        "effective-sub-affixes": [
+            "HpPercentage",
+            "CritDmg",
+            "Spd"
+        ]
+    },
+    {
+        "character": "Archer",
+        "main-affixes": {
+            "body": "CritRate",
+            "feet": "AtkPercentage",
+            "sphere": "QuantumDmgBoost",
+            "rope": "AtkPercentage"
+        },
+        "effective-sub-affixes": [
+            "AtkPercentage",
+            "CritRate",
+            "CritDmg",
+            "Spd"
+        ]
+    },
+    {
+        "character": "Evernight",
+        "main-affixes": {
+            "body": "CritDmg",
+            "feet": "HpPercentage",
+            "sphere": "IceDmgBoost",
+            "rope": "EnergyRegenerationRate"
+        },
+        "effective-sub-affixes": [
+            "HpPercentage",
+            "CritRate",
+            "CritDmg",
+            "Spd"
+        ]
+    }
+]
