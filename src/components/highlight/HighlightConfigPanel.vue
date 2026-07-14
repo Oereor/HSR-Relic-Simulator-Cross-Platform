@@ -1,6 +1,11 @@
 <template>
   <div class="bg-bg-card border border-card-border rounded-md p-3">
-    <SectionHeader>{{ localeStore.t('meta.useful_sub_affixes') }}</SectionHeader>
+    <SectionHeader>
+      {{ localeStore.t('meta.useful_sub_affixes') }}
+      <span v-if="highlightStore.isLocked" class="text-accent-gold text-[10px]">
+        ({{ localeStore.t('ui.template.locked') }})
+      </span>
+    </SectionHeader>
     <div class="flex flex-wrap gap-x-3 gap-y-1">
       <label
         v-for="item in highlightStore.items"
@@ -11,7 +16,9 @@
         <input
           type="checkbox"
           :checked="item.isChecked"
+          :disabled="highlightStore.isLocked"
           class="w-3 h-3 accent-accent-gold cursor-pointer"
+          :class="{ 'opacity-50 cursor-not-allowed': highlightStore.isLocked }"
           @change="highlightStore.setUseful(item.type, ($event.target as HTMLInputElement).checked)"
         />
         <span>{{ item.displayName }}</span>

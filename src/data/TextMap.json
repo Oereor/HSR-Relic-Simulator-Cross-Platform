@@ -301,6 +301,48 @@
     "ui.relic.decompose": {
       "en": "Decompose",
       "zh": "分解"
+    },
+
+    "ui.template.header": {
+      "en": "Character Template",
+      "zh": "角色模板"
+    },
+    "ui.template.none": {
+      "en": "None",
+      "zh": "无"
+    },
+    "ui.template.clear": {
+      "en": "Clear Template",
+      "zh": "清除模板"
+    },
+    "ui.template.locked": {
+      "en": "locked",
+      "zh": "已锁定"
+    },
+    "ui.create.suitable_set_button": {
+      "en": "Create Suitable Set",
+      "zh": "合成适配套装"
+    },
+
+    "character.name.Firefly": {
+      "en": "Firefly",
+      "zh": "流萤"
+    },
+    "character.name.Castorice": {
+      "en": "Castorice",
+      "zh": "遐蝶"
+    },
+    "character.name.Hyacine": {
+      "en": "Hyacine",
+      "zh": "风堇"
+    },
+    "character.name.Archer": {
+      "en": "Archer",
+      "zh": "Archer"
+    },
+    "character.name.Evernight": {
+      "en": "Evernight",
+      "zh": "长夜月"
     }
   }
 }
