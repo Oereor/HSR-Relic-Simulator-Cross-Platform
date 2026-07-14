@@ -19,6 +19,10 @@
     <div>
       <label class="text-text-muted text-[11px] block mb-0.5">
         {{ localeStore.t('meta.main_affix') }}
+        <span v-if="templateStore.isTemplateActive && createStore.isMainAffixFixed"
+              class="text-accent-gold">
+          ({{ localeStore.t('ui.template.locked') }})
+        </span>
       </label>
       <ComboBox
         :options="createStore.availableMainAffixes"
@@ -66,6 +70,7 @@ import { RelicPosition } from '@/types/enums'
 import { useCreateRelicStore } from '@/stores/useCreateRelicStore'
 import { useRelicStore } from '@/stores/useRelicStore'
 import { useLocaleStore } from '@/stores/useLocaleStore'
+import { useCharacterTemplateStore } from '@/stores/useCharacterTemplateStore'
 import { createNewRelic } from '@/logic/RelicSystem'
 import SectionHeader from '@/components/ui/SectionHeader.vue'
 import GoldButton from '@/components/ui/GoldButton.vue'
@@ -74,6 +79,7 @@ import ComboBox from '@/components/ui/ComboBox.vue'
 const createStore = useCreateRelicStore()
 const relicStore = useRelicStore()
 const localeStore = useLocaleStore()
+const templateStore = useCharacterTemplateStore()
 
 function setSelectedPosition(value: RelicPosition | null): void {
   if (value !== null) createStore.selectedPosition = value

@@ -36,6 +36,11 @@ export const useLocaleStore = defineStore('locale', () => {
     return localizationService.getPositionName(pos)
   }
 
+  function getCharacterName(name: string): string {
+    void currentLanguage.value
+    return localizationService.getCharacterName(name)
+  }
+
   function setLanguage(code: string): void {
     localizationService.currentLanguage = code
     currentLanguage.value = code
@@ -47,6 +52,7 @@ export const useLocaleStore = defineStore('locale', () => {
     t,
     getAffixName,
     getPositionName,
+    getCharacterName,
     setLanguage,
   }
 })
