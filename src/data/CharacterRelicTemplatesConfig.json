@@ -9,7 +9,7 @@
         },
         "effective-sub-affixes": [
             "AtkPercentage",
-            "HpPercentage",
+            "BreakEffect",
             "Spd"
         ]
     },
