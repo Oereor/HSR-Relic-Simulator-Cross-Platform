@@ -185,12 +185,12 @@
       "zh": "已满级"
     },
     "ui.level_up.x1": {
-      "en": "×1",
-      "zh": "×1"
+      "en": "+1",
+      "zh": "+1"
     },
     "ui.level_up.to_node": {
-      "en": "To Node",
-      "zh": "升至节点"
+      "en": "Next Node",
+      "zh": "下一节点"
     },
     "ui.level_up.to_max": {
       "en": "Max",
@@ -202,7 +202,7 @@
     },
     "ui.reforge.button_blocked": {
       "en": "Reforge ({0} blocked)",
-      "zh": "重铸（已锁定第{0}条）"
+      "zh": "重铸（已屏蔽第{0}条）"
     },
     "ui.reforge.accept": {
       "en": "Accept",
@@ -229,8 +229,8 @@
       "zh": "空"
     },
     "ui.relic_set.useful_hits": {
-      "en": "Useful Hits",
-      "zh": "有效词条"
+      "en": "Effective Hits",
+      "zh": "有效副词条命中"
     },
     "ui.relic_set.save": {
       "en": "Save Set",
@@ -279,8 +279,8 @@
       "zh": "数据统计"
     },
     "ui.statistics.empty": {
-      "en": "No useful hits",
-      "zh": "无有效词条"
+      "en": "No effective hits",
+      "zh": "无有效副词条"
     },
 
     "ui.thumbnail.empty": {
@@ -355,6 +355,14 @@
     "character.name.Trailblazer (Harmony)": {
       "en": "Trailblazer (Harmony)",
       "zh": "开拓者·同谐"
+    },
+    "character.name.Trailblazer (Remembrance)": {
+      "en": "Trailblazer (Remembrance)",
+      "zh": "开拓者·记忆"
+    },
+    "character.name.Silver Wolf Lv. 999": {
+      "en": "Silver Wolf Lv. 999",
+      "zh": "银狼 Lv. 999"
     }
   }
 }
