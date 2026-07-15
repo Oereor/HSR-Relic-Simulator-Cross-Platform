@@ -70,5 +70,47 @@
             "CritDmg",
             "Spd"
         ]
+    },
+    {
+        "character": "Cyrene",
+        "main-affixes": {
+            "body": "CritDmg",
+            "feet": "Spd",
+            "sphere": "HpPercentage",
+            "rope": "HpPercentage"
+        },
+        "effective-sub-affixes": [
+            "HpPercentage",
+            "CritRate",
+            "CritDmg",
+            "Spd"
+        ]
+    },
+    {
+        "character": "Phainon",
+        "main-affixes": {
+            "body": "CritRate",
+            "feet": "AtkPercentage",
+            "sphere": "PhysicalDmgBoost",
+            "rope": "AtkPercentage"
+        },
+        "effective-sub-affixes": [
+            "AtkPercentage",
+            "CritRate",
+            "CritDmg"
+        ]
+    },
+    {
+        "character": "Trailblazer (Harmony)",
+        "main-affixes": {
+            "body": "HpPercentage",
+            "feet": "Spd",
+            "sphere": "HpPercentage",
+            "rope": "EnergyRegenerationRate"
+        },
+        "effective-sub-affixes": [
+            "BreakEffect",
+            "Spd"
+        ]
     }
 ]

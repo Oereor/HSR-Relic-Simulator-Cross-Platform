@@ -343,6 +343,18 @@
     "character.name.Evernight": {
       "en": "Evernight",
       "zh": "长夜月"
+    },
+    "character.name.Cyrene": {
+      "en": "Cyrene",
+      "zh": "昔涟"
+    },
+    "character.name.Phainon": {
+      "en": "Phainon",
+      "zh": "白厄"
+    },
+    "character.name.Trailblazer (Harmony)": {
+      "en": "Trailblazer (Harmony)",
+      "zh": "开拓者·同谐"
     }
   }
 }
