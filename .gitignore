@@ -31,3 +31,4 @@ npm-debug.log*
 # All .md files except README.md are AI-generated plans/prompts — don't track them
 *.md
 !README.md
+/.claude
