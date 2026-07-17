@@ -6,26 +6,43 @@
  */
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { AffixType } from '@/types/enums'
 import type { RelicPosition } from '@/types/enums'
-import type { RelicSetStatistics } from '@/types/statistics'
-import { computeStatistics } from '@/logic/StatisticsService'
+import type { RelicSetStatistics, TotalValueStatistics } from '@/types/statistics'
+import { computeStatistics, computeTotalValueStatistics } from '@/logic/StatisticsService'
 import { serialize, deserialize } from '@/logic/SaveLoadService'
 import { RelicSet } from '@/types/relic'
 import { useRelicStore } from './useRelicStore'
 import { useHighlightStore } from './useHighlightStore'
 import { useLocaleStore } from './useLocaleStore'
+import { useCharacterTemplateStore } from './useCharacterTemplateStore'
 
 export const useRelicSetStore = defineStore('relicSet', () => {
   const statusText = ref<string>('')
   const relicStore = useRelicStore()
   const highlightStore = useHighlightStore()
   const localeStore = useLocaleStore()
+  const templateStore = useCharacterTemplateStore()
 
   /** Computed statistics for the current relic set. */
   const statistics = computed<RelicSetStatistics>(() => {
     return computeStatistics(
       relicStore.currentSet,
       highlightStore.usefulAffixes,
+      (type) => localeStore.getAffixName(type),
+    )
+  })
+
+  /** Computed total affix values for the current relic set. */
+  const totalValueStatistics = computed<TotalValueStatistics>(() => {
+    const templateTypes: Set<AffixType> | null = templateStore.isTemplateActive
+      ? new Set(Object.values(templateStore.selectedTemplate!.mainAffixes))
+      : null
+
+    return computeTotalValueStatistics(
+      relicStore.currentSet,
+      highlightStore.usefulAffixes,
+      templateTypes,
       (type) => localeStore.getAffixName(type),
     )
   })
@@ -47,6 +64,7 @@ export const useRelicSetStore = defineStore('relicSet', () => {
   return {
     statusText,
     statistics,
+    totalValueStatistics,
     serializeSet,
     deserializeSet,
     removeRelicFromSet,

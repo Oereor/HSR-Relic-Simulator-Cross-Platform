@@ -282,6 +282,10 @@
       "en": "No effective hits",
       "zh": "无有效副词条"
     },
+    "ui.statistics.total_values": {
+      "en": "Total Affix Values",
+      "zh": "总词条数值"
+    },
 
     "ui.thumbnail.empty": {
       "en": "No relics created yet",
