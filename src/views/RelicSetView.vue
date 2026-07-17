@@ -29,6 +29,12 @@
       :category-hits="relicSetStore.statistics.categoryHits"
     />
 
+    <!-- Total affix value statistics -->
+    <TotalValuePanel
+      :items="relicSetStore.totalValueStatistics.items"
+      class="mt-4"
+    />
+
     <!-- Save / Load -->
     <div class="flex flex-wrap gap-4 mt-6 items-center">
       <GoldButton @click="handleSave">
@@ -52,6 +58,7 @@ import { useCharacterTemplateStore } from '@/stores/useCharacterTemplateStore'
 import { saveToFile, loadFromFile } from '@/utils/fileIO'
 import RelicSetSlot from '@/components/set/RelicSetSlot.vue'
 import StatisticsPanel from '@/components/set/StatisticsPanel.vue'
+import TotalValuePanel from '@/components/set/TotalValuePanel.vue'
 import GoldButton from '@/components/ui/GoldButton.vue'
 import AppButton from '@/components/ui/AppButton.vue'
 

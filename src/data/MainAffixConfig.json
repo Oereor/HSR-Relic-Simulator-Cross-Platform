@@ -51,7 +51,7 @@
         "type": "EnergyRegenerationRate",
         "is-percent": true,
         "base-value": "3.1104",
-        "level-up-step": "19.4394"
+        "level-up-step": "1.0886"
     },
     {
         "type": "OutgoingHealingBoost",
