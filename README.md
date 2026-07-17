@@ -7,7 +7,7 @@ A relic farming simulator for **Honkai: Star Rail**. Generate relic pieces with 
 - **Relic generator** — create pieces with the same main- and sub-affix probabilities used in-game
 - **Level-up simulation** — upgrade from +0 to +15 and watch sub-affixes roll at each breakpoint
 - **Reforge comparison** — side-by-side view of a piece before and after reforging
-- **Set statistics** — per-slot and full-set breakdowns of affix frequency and roll quality
+- **Set statistics** — per-slot and full-set breakdowns of affix frequency, roll quality, and total affix values (main + sub merged)
 - **Custom highlight rules** — define your own stat priorities to flag pieces worth keeping
 - **Import / export** — save your relic stash to a JSON file and load it back later
 - **EN / CN toggle** — switch between English and Chinese on the fly
@@ -49,7 +49,7 @@ src/
 ├── components/
 │   ├── ui/                     # shared primitives (buttons, combobox, card border)
 │   ├── relic/                  # relic card, thumbnail, affix rows, reforge compare
-│   ├── set/                    # relic set slot, statistics panel
+│   ├── set/                    # relic set slot, statistics panel, total value panel
 │   ├── highlight/              # highlight rule config panel
 │   ├── layout/                 # app shell (panels, language toggle)
 │   └── create/                 # relic creation form
@@ -71,7 +71,7 @@ src/
 │   ├── RngService.ts           #   seeded RNG wrapper
 │   ├── RandomWrapper.ts        #   RNG abstraction layer
 │   ├── SaveLoadService.ts      #   JSON import/export
-│   └── StatisticsService.ts    #   set-statistics aggregation
+│   └── StatisticsService.ts    #   set-statistics aggregation + total affix value computation
 ├── router/
 │   └── index.ts
 ├── stores/                     # Pinia stores
