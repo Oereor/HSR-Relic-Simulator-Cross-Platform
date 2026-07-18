@@ -367,6 +367,14 @@
     "character.name.Silver Wolf Lv. 999": {
       "en": "Silver Wolf Lv. 999",
       "zh": "银狼 Lv. 999"
+    },
+    "character.name.Sparkle": {
+      "en": "Sparkle",
+      "zh": "花火"
+    },
+    "character.name.Himeko (Nova)": {
+      "en": "Himeko (Nova)",
+      "zh": "姬子·启行"
     }
   }
 }
