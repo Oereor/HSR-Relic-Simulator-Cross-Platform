@@ -38,7 +38,8 @@
         "effective-sub-affixes": [
             "HpPercentage",
             "CritDmg",
-            "Spd"
+            "Spd",
+            "EffectRes"
         ]
     },
     {
@@ -139,6 +140,35 @@
             "Spd",
             "CritRate",
             "CritDmg"
+        ]
+    },
+    {
+        "character": "Sparkle",
+        "main-affixes": {
+            "body": "CritDmg",
+            "feet": "Spd",
+            "sphere": "HpPercentage",
+            "rope": "EnergyRegenerationRate"
+        },
+        "effective-sub-affixes": [
+            "Spd",
+            "CritDmg",
+            "EffectRes"
+        ]
+    },
+    {
+        "character": "Himeko (Nova)",
+        "main-affixes": {
+            "body": "CritRate",
+            "feet": "AtkPercentage",
+            "sphere": "AtkPercentage",
+            "rope": "EnergyRegenerationRate"
+        },
+        "effective-sub-affixes": [
+            "AtkPercentage",
+            "CritRate",
+            "CritDmg",
+            "Spd"
         ]
     }
 ]
