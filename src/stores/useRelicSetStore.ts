@@ -54,11 +54,19 @@ export const useRelicSetStore = defineStore('relicSet', () => {
   const outOfBattleStats = computed<OutOfBattleStats | null>(() => {
     if (!templateStore.isTemplateActive || !templateStore.selectedCharacter) return null
     const baseStats = configService.getCharacterBaseStats(templateStore.selectedCharacter)
+
+    // Merge template main affixes (Body/Feet/Sphere/Rope) into the useful set
+    // so they receive gold highlighting — same logic as totalValueStatistics.
+    const templateMainAffixTypes: AffixType[] = templateStore.selectedTemplate
+      ? Object.values(templateStore.selectedTemplate.mainAffixes)
+      : []
+    const combinedUseful = new Set([...highlightStore.usefulAffixes, ...templateMainAffixTypes])
+
     return computeOutOfBattleStats(
       templateStore.selectedCharacter,
       baseStats,
       relicStore.currentSet,
-      highlightStore.usefulAffixes,
+      combinedUseful,
       (type) => localeStore.getAffixName(type),
     )
   })
