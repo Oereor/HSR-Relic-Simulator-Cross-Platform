@@ -11,6 +11,8 @@ import type {
   SubAffixConfigEntry,
   MainAffixProbabilityEntry,
   MainAffixOption,
+  CharacterBaseStatEntry,
+  ParsedBonusValue,
 } from '@/types/config'
 import { AffixType, RelicPosition } from '@/types/enums'
 import type { RandomWrapper } from './RandomWrapper'
@@ -20,6 +22,7 @@ import mainAffixConfigRaw from '@/data/MainAffixConfig.json'
 import subAffixConfigRaw from '@/data/SubAffixConfig.json'
 import mainAffixProbRaw from '@/data/MainAffixProbabilityConfig.json'
 import characterTemplatesRaw from '@/data/CharacterRelicTemplatesConfig.json'
+import characterBaseStatsRaw from '@/data/CharacterBaseStats.json?raw'
 import type { CharacterTemplate, CharacterTemplateMainAffixes } from '@/types/characterTemplate'
 
 // ---- Raw JSON shapes (kebab-case keys, string numbers) ----
@@ -79,6 +82,49 @@ function parseNumber(raw: string): number {
   return Number.isFinite(n) ? n : 0
 }
 
+// ---- Decimal-aware JSON parsing ----
+
+/** Sentinel shape after wrapping numbers and JSON.parse. */
+interface NumberSentinel {
+  __n: number
+  __p: boolean
+}
+
+/** Unwrapped value that preserves the original number + its decimal flag. */
+interface UnwrappedValue {
+  value: number
+  isPercentage: boolean
+}
+
+/** Check whether a parsed node is a number sentinel. */
+function isNumberSentinel(obj: unknown): obj is NumberSentinel {
+  if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) return false
+  const keys = Object.keys(obj)
+  return keys.length === 2 && '__n' in obj && '__p' in obj
+}
+
+/**
+ * Recursively walk the parsed tree and replace every sentinel
+ * ({ __n, __p }) with { value, isPercentage }.  Regular objects
+ * and arrays are recursed into; all other values pass through.
+ */
+function unwrapSentinels(node: unknown): unknown {
+  if (isNumberSentinel(node)) {
+    return { value: node.__n, isPercentage: node.__p } satisfies UnwrappedValue
+  }
+  if (Array.isArray(node)) {
+    return node.map(unwrapSentinels)
+  }
+  if (node !== null && typeof node === 'object') {
+    const result: Record<string, unknown> = {}
+    for (const [key, val] of Object.entries(node)) {
+      result[key] = unwrapSentinels(val)
+    }
+    return result
+  }
+  return node
+}
+
 // ---- Singleton ----
 
 class ConfigService {
@@ -88,6 +134,7 @@ class ConfigService {
   private subAffixEntriesList: SubAffixConfigEntry[] = []
   private allSubAffixTypesSet = new Set<AffixType>()
   private characterTemplates: CharacterTemplate[] = []
+  private characterBaseStats = new Map<string, CharacterBaseStatEntry>()
 
   constructor() {
     this.loadConfigs()
@@ -125,6 +172,10 @@ class ConfigService {
 
   getCharacterTemplate(characterName: string): CharacterTemplate | undefined {
     return this.characterTemplates.find(t => t.character === characterName)
+  }
+
+  getCharacterBaseStats(characterName: string): CharacterBaseStatEntry | undefined {
+    return this.characterBaseStats.get(characterName)
   }
 
   // ---- Weighted random selection ----
@@ -208,6 +259,64 @@ class ConfigService {
     }
 
     this.loadCharacterTemplates()
+    this.loadCharacterBaseStats()
+  }
+
+  private loadCharacterBaseStats(): void {
+    // Wrap every JSON number literal in a sentinel so we can distinguish
+    // "5" (flat) from "6.0" (percentage) after JSON.parse normalises both.
+    const wrapped = characterBaseStatsRaw.replace(
+      /-?\d+\.?\d*(?:[eE][+-]?\d+)?/g,
+      (match) => {
+        const isPct = match.includes('.')
+        return `{"__n":${match},"__p":${isPct}}`
+      },
+    )
+    const rawList = JSON.parse(wrapped) as Array<Record<string, unknown>>
+
+    for (const entry of rawList) {
+      // Walk the entire entry to replace sentinels with {value, isPercentage}
+      const unwrapped = unwrapSentinels(entry) as {
+        character: string
+        'base-stats': Record<string, unknown>
+        'bonus-stats'?: Record<string, unknown>
+      }
+
+      // Sum base-stats (arrays of UnwrappedValue, or single UnwrappedValue)
+      const rawBase = unwrapped['base-stats']
+      const hpArr = (rawBase['Hp'] as UnwrappedValue[] | undefined) ?? []
+      const atkArr = (rawBase['Atk'] as UnwrappedValue[] | undefined) ?? []
+      const defArr = (rawBase['Def'] as UnwrappedValue[] | undefined) ?? []
+      const spdVal = rawBase['Spd'] as UnwrappedValue | number | undefined
+
+      const baseStats = {
+        hp: Array.isArray(hpArr) ? hpArr.reduce((s, v) => s + v.value, 0) : 0,
+        atk: Array.isArray(atkArr) ? atkArr.reduce((s, v) => s + v.value, 0) : 0,
+        def: Array.isArray(defArr) ? defArr.reduce((s, v) => s + v.value, 0) : 0,
+        spd: typeof spdVal === 'object' && spdVal !== null && 'value' in spdVal
+          ? (spdVal as UnwrappedValue).value
+          : (spdVal as number) ?? 0,
+      }
+
+      // Map bonus-stats keys → ParsedBonusValue[]
+      const bonusStats: Record<string, ParsedBonusValue[]> = {}
+      const rawBonus = unwrapped['bonus-stats']
+      if (rawBonus && typeof rawBonus === 'object') {
+        for (const [key, val] of Object.entries(rawBonus)) {
+          if (Array.isArray(val)) {
+            bonusStats[key] = val.map(
+              (v) =>
+                (v as UnwrappedValue).value !== undefined
+                  ? { value: (v as UnwrappedValue).value, isPercentage: (v as UnwrappedValue).isPercentage }
+                  : { value: v as number, isPercentage: false },
+            )
+          }
+        }
+      }
+
+      const name: string = String(unwrapped.character ?? '')
+      this.characterBaseStats.set(name, { character: name, baseStats, bonusStats })
+    }
   }
 
   private loadCharacterTemplates(): void {

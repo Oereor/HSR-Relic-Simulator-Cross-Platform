@@ -1,0 +1,132 @@
+[
+    {
+        "character": "Firefly",
+        "base-stats": {
+            "Hp": [815, 1164],
+            "Atk": [524, 476],
+            "Def": [776, 529],
+            "Spd": 104
+        },
+        "bonus-stats": {
+            "Spd": [5, 6.0],
+            "BreakEffect": [37.3, 60.0],
+            "EffectRes": [18.0]
+        }
+    },
+    {
+        "character": "Castorice",
+        "base-stats": {
+            "Hp": [1630, 1270],
+            "Atk": [524, 529],
+            "Def": [485, 397],
+            "Spd": 95
+        },
+        "bonus-stats": {
+            "Hp": [30.0, 12.0],
+            "CritRate": [18.7],
+            "CritDmg": [13.3],
+            "QuantumDmgBoost": [14.4],
+            "Spd": [-8.0]
+        }
+    },
+    {
+        "character": "Hyacine",
+        "base-stats": {
+            "Hp": [1087, 1164],
+            "Atk": [388, 476],
+            "Def": [631, 529],
+            "Spd": 110
+        },
+        "bonus-stats": {
+            "Hp": [10.0],
+            "Spd": [14, 18.0, 6.0],
+            "EffectRes": [18.0]
+        }
+    },
+    {
+        "character": "Archer",
+        "base-stats": {
+            "Hp": [1164, 953],
+            "Atk": [621, 582],
+            "Def": [485, 529],
+            "Spd": 105
+        },
+        "bonus-stats": {
+            "Atk": [18.0],
+            "CritRate": [6.7, 16.0, 8.0],
+            "QuantumDmgBoost": [22.4]
+        }
+    },
+    {
+        "character": "Evernight",
+        "base-stats": {
+            "Hp": [1319, 1164],
+            "Atk": [543, 529],
+            "Def": [582, 463],
+            "Spd": 99
+        },
+        "bonus-stats": {
+            "Hp": [18.0, 30.0, 12.0],
+            "CritRate": [18.7],
+            "CritDmg": [13.3]
+        }
+    },
+    {
+        "character": "Cyrene",
+        "base-stats": {
+            "Hp": [1397, 1270],
+            "Atk": [446, 476],
+            "Def": [582, 463],
+            "Spd": 101
+        },
+        "bonus-stats": {
+            "Hp": [10.0],
+            "Spd": [9, 18.0],
+            "CritRate": [8.0],
+            "CritDmg": [37.3]
+        }
+    },
+    {
+        "character": "Phainon",
+        "base-stats": {
+            "Hp": [1436, 953],
+            "Atk": [582, 688],
+            "Def": [703, 397],
+            "Spd": 106
+        },
+        "bonus-stats": {
+            "Spd": [5],
+            "CritRate": [12.0],
+            "CritDmg": [37.3]
+        }
+    },
+    {
+        "character": "Trailblazer (Remembrance)",
+        "base-stats": {
+            "Hp": [1048, 847],
+            "Atk": [543, 476],
+            "Def": [631, 397],
+            "Spd": 103
+        },
+        "bonus-stats": {
+            "Hp": [14.0],
+            "Atk": [14.0],
+            "CritDmg": [37.3, 24.0],
+            "EnergyRegenerationRate": [5.0]
+        }
+    },
+    {
+        "character": "Himeko (Nova)",
+        "base-stats": {
+            "Hp": [1125, 847],
+            "Atk": [757, 635],
+            "Def": [485, 529],
+            "Spd": 98
+        },
+        "bonus-stats": {
+            "Atk": [28.0],
+            "CritRate": [12.0, 8.0],
+            "FireDmgBoost": [8.0]
+        }
+    }
+]
