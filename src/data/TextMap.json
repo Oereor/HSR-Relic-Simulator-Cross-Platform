@@ -286,6 +286,14 @@
       "en": "Total Affix Values",
       "zh": "总词条数值提升"
     },
+    "ui.statistics.out_of_battle": {
+      "en": "Out-of-Battle Stats",
+      "zh": "非战斗属性"
+    },
+    "ui.statistics.select_template_hint": {
+      "en": "Select a character template to view out-of-battle stats",
+      "zh": "选择角色模板以查看非战斗属性"
+    },
 
     "ui.thumbnail.empty": {
       "en": "No relics created yet",
