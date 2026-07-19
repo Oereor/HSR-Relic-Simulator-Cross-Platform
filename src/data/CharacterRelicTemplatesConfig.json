@@ -102,19 +102,6 @@
         ]
     },
     {
-        "character": "Trailblazer (Harmony)",
-        "main-affixes": {
-            "body": "HpPercentage",
-            "feet": "Spd",
-            "sphere": "HpPercentage",
-            "rope": "EnergyRegenerationRate"
-        },
-        "effective-sub-affixes": [
-            "BreakEffect",
-            "Spd"
-        ]
-    },
-    {
         "character": "Trailblazer (Remembrance)",
         "main-affixes": {
             "body": "CritDmg",
@@ -126,34 +113,6 @@
             "AtkPercentage",
             "Spd",
             "CritDmg"
-        ]
-    },
-    {
-        "character": "Silver Wolf Lv. 999",
-        "main-affixes": {
-            "body": "CritRate",
-            "feet": "Spd",
-            "sphere": "HpPercentage",
-            "rope": "HpPercentage"
-        },
-        "effective-sub-affixes": [
-            "Spd",
-            "CritRate",
-            "CritDmg"
-        ]
-    },
-    {
-        "character": "Sparkle",
-        "main-affixes": {
-            "body": "CritDmg",
-            "feet": "Spd",
-            "sphere": "HpPercentage",
-            "rope": "EnergyRegenerationRate"
-        },
-        "effective-sub-affixes": [
-            "Spd",
-            "CritDmg",
-            "EffectRes"
         ]
     },
     {
