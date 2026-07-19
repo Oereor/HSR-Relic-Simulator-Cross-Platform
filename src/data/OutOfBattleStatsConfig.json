@@ -1,0 +1,18 @@
+{
+  "valueStats": [
+    { "key": "Hp", "order": 0 },
+    { "key": "Atk", "order": 1 },
+    { "key": "Def", "order": 2 },
+    { "key": "Spd", "order": 3 }
+  ],
+  "percentageStats": [
+    { "key": "CritRate", "order": 0, "defaultValue": 5.0 },
+    { "key": "CritDmg", "order": 1, "defaultValue": 50.0 },
+    { "key": "BreakEffect", "order": 2, "defaultValue": 0.0 },
+    { "key": "OutgoingHealingBoost", "order": 3, "defaultValue": 0.0 },
+    { "key": "EnergyRegenerationRate", "order": 4, "defaultValue": 100.0 },
+    { "key": "EffectHitRate", "order": 5, "defaultValue": 0.0 },
+    { "key": "EffectRes", "order": 6, "defaultValue": 0.0 },
+    { "key": "ElementalDmgBoost", "order": 7, "defaultValue": 0.0 }
+  ]
+}

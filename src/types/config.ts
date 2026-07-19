@@ -31,3 +31,21 @@ export interface MainAffixOption {
   type: AffixType
   probability: number
 }
+
+/** A single parsed bonus-stat value with its percentage/flag distinction preserved. */
+export interface ParsedBonusValue {
+  value: number
+  isPercentage: boolean
+}
+
+/** Parsed character base-stats entry loaded from CharacterBaseStats.json. */
+export interface CharacterBaseStatEntry {
+  character: string
+  baseStats: {
+    hp: number
+    atk: number
+    def: number
+    spd: number
+  }
+  bonusStats: Record<string, ParsedBonusValue[]>
+}

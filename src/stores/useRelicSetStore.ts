@@ -9,7 +9,10 @@ import { ref, computed } from 'vue'
 import { AffixType } from '@/types/enums'
 import type { RelicPosition } from '@/types/enums'
 import type { RelicSetStatistics, TotalValueStatistics } from '@/types/statistics'
+import type { OutOfBattleStats } from '@/types/outOfBattleStats'
 import { computeStatistics, computeTotalValueStatistics } from '@/logic/StatisticsService'
+import { computeOutOfBattleStats } from '@/logic/OutOfBattleStatsService'
+import { configService } from '@/logic/ConfigService'
 import { serialize, deserialize } from '@/logic/SaveLoadService'
 import { RelicSet } from '@/types/relic'
 import { useRelicStore } from './useRelicStore'
@@ -47,6 +50,27 @@ export const useRelicSetStore = defineStore('relicSet', () => {
     )
   })
 
+  /** Computed out-of-battle stats for the selected character template. */
+  const outOfBattleStats = computed<OutOfBattleStats | null>(() => {
+    if (!templateStore.isTemplateActive || !templateStore.selectedCharacter) return null
+    const baseStats = configService.getCharacterBaseStats(templateStore.selectedCharacter)
+
+    // Merge template main affixes (Body/Feet/Sphere/Rope) into the useful set
+    // so they receive gold highlighting — same logic as totalValueStatistics.
+    const templateMainAffixTypes: AffixType[] = templateStore.selectedTemplate
+      ? Object.values(templateStore.selectedTemplate.mainAffixes)
+      : []
+    const combinedUseful = new Set([...highlightStore.usefulAffixes, ...templateMainAffixTypes])
+
+    return computeOutOfBattleStats(
+      templateStore.selectedCharacter,
+      baseStats,
+      relicStore.currentSet,
+      combinedUseful,
+      (type) => localeStore.getAffixName(type),
+    )
+  })
+
   function serializeSet(): string {
     return serialize(relicStore.currentSet)
   }
@@ -65,6 +89,7 @@ export const useRelicSetStore = defineStore('relicSet', () => {
     statusText,
     statistics,
     totalValueStatistics,
+    outOfBattleStats,
     serializeSet,
     deserializeSet,
     removeRelicFromSet,
