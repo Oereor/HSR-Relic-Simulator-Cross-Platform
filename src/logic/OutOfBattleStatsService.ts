@@ -33,6 +33,32 @@ const VALUE_STAT_RELIC_MAP: Record<string, { flat: AffixType; pct: AffixType | n
   Spd: { flat: AffixType.Spd, pct: null },
 }
 
+/** Flat ↔ percentage and elemental equivalence for unified display rows. */
+const AFFIX_EQUIVALENCE: Partial<Record<AffixType, AffixType[]>> = {
+  [AffixType.Hp]: [AffixType.HpPercentage],
+  [AffixType.HpPercentage]: [AffixType.Hp],
+  [AffixType.Atk]: [AffixType.AtkPercentage],
+  [AffixType.AtkPercentage]: [AffixType.Atk],
+  [AffixType.Def]: [AffixType.DefPercentage],
+  [AffixType.DefPercentage]: [AffixType.Def],
+}
+
+// All 7 elemental DMG types are equivalent — only one row is shown,
+// so marking any one as useful highlights the resolved element row.
+for (const elem of ELEMENTAL_DMG_TYPES) {
+  AFFIX_EQUIVALENCE[elem] = ELEMENTAL_DMG_TYPES.filter((t) => t !== elem)
+}
+
+/** Check whether an affix type is useful, considering flat↔percentage and elemental equivalence. */
+function isAffixUseful(type: AffixType, usefulAffixes: Set<AffixType>): boolean {
+  if (usefulAffixes.has(type)) return true
+  const equivalents = AFFIX_EQUIVALENCE[type]
+  if (equivalents) {
+    return equivalents.some((t) => usefulAffixes.has(t))
+  }
+  return false
+}
+
 /** Config entry shape for a single stat row in OutOfBattleStatsConfig.json. */
 interface StatConfigEntry {
   key: string
@@ -234,7 +260,7 @@ export function computeOutOfBattleStats(
       displayName: getAffixName(affixType),
       value,
       isPercent: false,
-      isUseful: usefulAffixes.has(affixType),
+      isUseful: isAffixUseful(affixType, usefulAffixes),
     })
   }
 
@@ -257,7 +283,7 @@ export function computeOutOfBattleStats(
         displayName: getAffixName(resolved),
         value,
         isPercent: true,
-        isUseful: usefulAffixes.has(resolved),
+        isUseful: isAffixUseful(resolved, usefulAffixes),
       })
       continue
     }
@@ -275,7 +301,7 @@ export function computeOutOfBattleStats(
       displayName: getAffixName(affixType),
       value,
       isPercent: true,
-      isUseful: usefulAffixes.has(affixType),
+      isUseful: isAffixUseful(affixType, usefulAffixes),
     })
   }
 
