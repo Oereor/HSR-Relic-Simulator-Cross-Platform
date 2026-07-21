@@ -9,7 +9,7 @@
         },
         "bonus-stats": {
             "Spd": [5, 6.0],
-            "BreakEffect": [37.3, 60.0],
+            "BreakEffect": [37.3, 60.0, 16.0],
             "EffectRes": [18.0]
         }
     },
@@ -25,7 +25,7 @@
             "Hp": [30.0, 12.0],
             "CritRate": [18.7],
             "CritDmg": [13.3],
-            "QuantumDmgBoost": [14.4],
+            "QuantumDmgBoost": [14.4, 10.0],
             "Spd": [-8.0]
         }
     },
@@ -39,7 +39,7 @@
         },
         "bonus-stats": {
             "Hp": [10.0],
-            "Spd": [14, 18.0, 6.0],
+            "Spd": [14, 18.0, 6.0, 6.0],
             "EffectRes": [18.0]
         }
     },
@@ -54,7 +54,7 @@
         "bonus-stats": {
             "Atk": [18.0],
             "CritRate": [6.7, 16.0, 8.0],
-            "QuantumDmgBoost": [22.4]
+            "QuantumDmgBoost": [22.4, 10.0]
         }
     },
     {
@@ -67,7 +67,7 @@
         },
         "bonus-stats": {
             "Hp": [18.0, 30.0, 12.0],
-            "CritRate": [18.7],
+            "CritRate": [18.7, 8.0],
             "CritDmg": [13.3]
         }
     },
@@ -82,7 +82,7 @@
         "bonus-stats": {
             "Hp": [10.0],
             "Spd": [9, 18.0],
-            "CritRate": [8.0],
+            "CritRate": [8.0, 8.0],
             "CritDmg": [37.3]
         }
     },
@@ -97,7 +97,7 @@
         "bonus-stats": {
             "Spd": [5],
             "CritRate": [12.0],
-            "CritDmg": [37.3]
+            "CritDmg": [37.3, 16.0]
         }
     },
     {
@@ -110,7 +110,7 @@
         },
         "bonus-stats": {
             "Hp": [14.0],
-            "Atk": [14.0],
+            "Atk": [14.0, 12.0],
             "CritDmg": [37.3, 24.0],
             "EnergyRegenerationRate": [5.0]
         }
@@ -124,7 +124,7 @@
             "Spd": 98
         },
         "bonus-stats": {
-            "Atk": [28.0],
+            "Atk": [28.0, 12.0],
             "CritRate": [12.0, 8.0],
             "FireDmgBoost": [8.0]
         }
